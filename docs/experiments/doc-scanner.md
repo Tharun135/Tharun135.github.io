@@ -1,25 +1,38 @@
 # Doc-Scanner
 
-A Flask-based documentation analysis tool I built to solve real problems 
-in my documentation workflow.
+An AI-powered documentation analysis tool I built to solve real problems 
+in my own writing workflow.
 
-## What it does
-- Analyzes documents for readability using readability metrics
-- Enforces style guide rules via RAG + ChromaDB
-- Rewrites content into simple present tense user manual steps using spaCy
-- Provides AI suggestions through a dynamic rule engine
+## The problem it solves
+
+Style guide enforcement is manual and inconsistent. Readability checks happen 
+too late. Feedback loops between writers and reviewers are slow.
+
+Doc-Scanner automates this — analyzing documents against style rules, 
+measuring readability, and suggesting rewrites in real time.
 
 ## Stack
-- Python + Flask
-- ChromaDB for vector storage
-- spaCy for NLP
-- RAG for style rule retrieval
+
+- **Python + Flask** — backend and blueprint architecture
+- **ChromaDB** — vector storage for style rules
+- **RAG** — retrieves relevant rules per document segment
+- **spaCy** — NLP for sentence analysis and rewriting
+- **Readability metrics** — Flesch-Kincaid and similar
 
 ## What I learned
-- How to structure a Flask blueprint architecture with dynamic rule loading
-- How RAG works in practice — not just in theory
-- The difference between using a framework like LangChain vs raw LLM function-calling APIs
 
-## What's next
-Productizing this end-to-end — a proper UI, shareable output reports, 
-and a deployable version others can use.
+- How to structure a Flask app with dynamic rule loading via blueprints
+- RAG works best when your knowledge base is well-structured — the retrieval 
+  is only as good as what you put in
+- Raw LLM function-calling APIs give you more control than LangChain, 
+  at the cost of more setup
+
+## Current focus
+
+Productizing this end-to-end — proper UI, exportable reports, and a 
+deployable version others can actually use.
+
+## Key decision
+
+I deliberately chose raw LLM APIs over LangChain. The abstraction LangChain 
+provides wasn't worth the loss of control for what I needed.
