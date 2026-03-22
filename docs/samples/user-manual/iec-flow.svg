@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<g transform="translate(90,0)">
+<style>
+
+text{
+font-family:Arial, sans-serif;
+font-size:18px;
+fill:#009688;
+font-weight:600;
+}
+
+.node{
+fill:#e6e6e6;
+stroke:#009688;
+stroke-width:2;
+}
+
+.connector{
+stroke:#009688;
+stroke-width:2;
+fill:none;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
+
+</style>
+
+<defs>
+
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+<path d="M0,0 L8,4 L0,8 Z" fill="#009688"/>
+</marker>
+
+<!-- icons -->
+
+<g id="icon-gear">
+  <g transform="scale(1.5) translate(-12,-12)" stroke="#009688" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M19.4 15 a1.7 1.7 0 0 0 .3 1.7 l.06.06 a2 2 0 1 1-2.83 2.83 l-.06-.06 a1.7 1.7 0 0 0-1.7-.3 a1.7 1.7 0 0 0-.9.5 a1.7 1.7 0 0 0-.4 1.1 V21 a2 2 0 1 1-4 0 v-.1 a1.7 1.7 0 0 0-.4-1.1 a1.7 1.7 0 0 0-.9-.5 a1.7 1.7 0 0 0-1.7.3 l-.06.06 a2 2 0 1 1-2.83-2.83 l.06-.06 a1.7 1.7 0 0 0 .3-1.7 a1.7 1.7 0 0 0-.5-.9 a1.7 1.7 0 0 0-1.1-.4 H3 a2 2 0 1 1 0-4 h.1 a1.7 1.7 0 0 0 1.1-.4 a1.7 1.7 0 0 0 .5-.9 a1.7 1.7 0 0 0-.3-1.7 l-.06-.06 a2 2 0 1 1 2.83-2.83 l.06.06 a1.7 1.7 0 0 0 1.7.3 a1.7 1.7 0 0 0 .9-.5 a1.7 1.7 0 0 0 .4-1.1 V3 a2 2 0 1 1 4 0 v.1 a1.7 1.7 0 0 0 .4 1.1 a1.7 1.7 0 0 0 .9.5 a1.7 1.7 0 0 0 1.7-.3 l.06-.06 a2 2 0 1 1 2.83 2.83 l-.06.06 a1.7 1.7 0 0 0-.3 1.7 a1.7 1.7 0 0 0 .5.9 a1.7 1.7 0 0 0 1.1.4 H21 a2 2 0 1 1 0 4 h-.1 a1.7 1.7 0 0 0-1.1.4 a1.7 1.7 0 0 0-.5.9 z"/>
+  </g>
+</g>
+
+<g id="icon-doc">
+  <g transform="scale(1.5) translate(-12,-12)" stroke="#009688" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M6 2h9l5 5v15H6z"/>
+    <path d="M14 2v6h6"/>
+    <path d="M8 13h8M8 17h6"/>
+  </g>
+</g>
+
+<g id="icon-arrow">
+  <g transform="scale(1.5) translate(-12,-12)" stroke="#009688" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="8" y="6" width="10" height="12" rx="1"/>
+    <path d="M3 12h9"/>
+    <path d="M9 9l3 3-3 3"/>
+  </g>
+</g>
+
+<g id="icon-check">
+  <g transform="scale(1.5) translate(-12,-12)" stroke="#009688" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="3" y="3" width="18" height="18" rx="3"/>
+    <path d="M7 12l3 3 7-7"/>
+  </g>
+</g>
+
+<g id="icon-pulse">
+  <g transform="scale(1.5) translate(-12,-12)" stroke="#009688" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M2 12h3l2-5 4 10 3-6 2 4h6"/>
+  </g>
+</g>
+
+  <!-- Ball animation paths -->
+  <!-- spine: (800,100)→(800,480) = 380 px -->
+  <path id="anim-path-spine" d="M800,100 L800,480"/>
+  <!-- left branch: (800,480)→(450,700) = 570 px -->
+  <path id="anim-path-left" d="M800,480 L600,480 L600,560 L450,560 L450,700"/>
+  <!-- right spine to 2nd junction: (800,480)→(1150,660) = 530 px -->
+  <path id="anim-path-right-spine" d="M800,480 L1000,480 L1000,560 L1150,560 L1150,660"/>
+  <!-- right-left sub: (1150,660)→(900,900) = 490 px -->
+  <path id="anim-path-right-left" d="M1150,660 L1000,660 L1000,760 L900,760 L900,900"/>
+  <!-- right-right sub (Flow Creator): (1150,660)→(1300,760) = 250 px -->
+  <path id="anim-path-right-right" d="M1150,660 L1300,660 L1300,760"/>
+
+</defs>
+
+
+<!-- MAIN FLOW -->
+
+<circle class="node" cx="800" cy="100" r="40"/>
+<use href="#icon-gear" transform="translate(800 100)"/>
+
+<line class="connector" x1="760" y1="100" x2="650" y2="100"/>
+
+<text x="640" y="95" text-anchor="end">
+Create data source for Modbus TCP Connector Tags
+<tspan x="640" dy="22">(in IIH)</tspan>
+</text>
+
+<line class="connector" x1="800" y1="140" x2="800" y2="200" marker-end="url(#arrow)"/>
+
+
+<circle class="node" cx="800" cy="240" r="40"/>
+<use href="#icon-arrow" transform="translate(800 240)"/>
+
+<line class="connector" x1="760" y1="240" x2="650" y2="240"/>
+
+<text x="640" y="235" text-anchor="end">
+Add Modbus TCP Connector Tags
+<tspan x="640" dy="22">to the data source</tspan>
+</text>
+
+<line class="connector" x1="800" y1="280" x2="800" y2="340" marker-end="url(#arrow)"/>
+
+
+<circle class="node" cx="800" cy="380" r="40"/>
+<use href="#icon-doc" transform="translate(800 380)"/>
+
+<line class="connector" x1="760" y1="380" x2="650" y2="380"/>
+
+<text x="640" y="375" text-anchor="end">
+Complete list of Modbus TCP Connector Tags
+</text>
+
+<line class="connector" x1="800" y1="420" x2="800" y2="480"/>
+
+<text x="640" y="470" text-anchor="end">
+Configure distribution of the data
+</text>
+
+<circle cx="800" cy="480" r="6" fill="#009688"/>
+
+
+<!-- LEFT BRANCH -->
+
+<path class="connector"
+d="M800 480 L600 480 L600 560 L450 560"
+marker-end="url(#arrow)"/>
+
+<circle class="node" cx="450" cy="560" r="40"/>
+<use href="#icon-check" transform="translate(450 560)"/>
+
+<line class="connector" x1="410" y1="560" x2="330" y2="560"/>
+
+<text x="320" y="550" text-anchor="end">
+Deploy Modbus TCP Connector Tags
+<tspan x="320" dy="22">
+directly in IIH and assign them
+</tspan>
+<tspan x="320" dy="22">
+in the asset model including data retention
+</tspan>
+</text>
+
+<line class="connector" x1="450" y1="600" x2="450" y2="660" marker-end="url(#arrow)"/>
+
+<circle class="node" cx="450" cy="700" r="40"/>
+<use href="#icon-pulse" transform="translate(450 700)"/>
+
+<line class="connector" x1="410" y1="700" x2="330" y2="700"/>
+
+<text x="320" y="695" text-anchor="end">
+Use Modbus TCP Connector Tags
+<tspan x="320" dy="22">
+in IE apps,
+</tspan>
+<tspan x="320" dy="22">
+e.g. Performance Insight
+</tspan>
+</text>
+
+
+<!-- RIGHT BRANCH -->
+
+<path class="connector"
+d="M800 480 L1000 480 L1000 560 L1150 560"
+marker-end="url(#arrow)"/>
+
+<circle class="node" cx="1150" cy="560" r="40"/>
+<use href="#icon-gear" transform="translate(1150 560)"/>
+
+<line class="connector" x1="1190" y1="560" x2="1250" y2="560"/>
+
+<text x="1260" y="550">
+Publish Modbus TCP Connector Tags in the Databus
+<tspan x="1260" dy="22">- Publish login data</tspan>
+<tspan x="1260" dy="22">- Create gateway configuration</tspan>
+<tspan x="1260" dy="22">- Configure metadata, topics and users</tspan>
+</text>
+
+<line class="connector" x1="1150" y1="600" x2="1150" y2="660"/>
+
+<circle cx="1150" cy="660" r="6" fill="#009688"/>
+
+
+<!-- RIGHT SUB BRANCH -->
+
+<path class="connector"
+d="M1150 660 L1000 660 L1000 760 L900 760"
+marker-end="url(#arrow)"/>
+
+<circle class="node" cx="900" cy="760" r="40"/>
+<use href="#icon-check" transform="translate(900 760)"/>
+
+<line class="connector" x1="860" y1="760" x2="780" y2="760"/>
+
+<text x="770" y="750" text-anchor="end">
+Deploy Modbus TCP Connector Tags
+<tspan x="770" dy="22">
+in IIH and assign them in the
+</tspan>
+<tspan x="770" dy="22">
+asset model including data retention
+</tspan>
+</text>
+
+<line class="connector" x1="900" y1="800" x2="900" y2="860" marker-end="url(#arrow)"/>
+
+<circle class="node" cx="900" cy="900" r="40"/>
+<use href="#icon-pulse" transform="translate(900 900)"/>
+
+<line class="connector" x1="860" y1="900" x2="780" y2="900"/>
+
+<text x="770" y="890" text-anchor="end">
+Use Modbus TCP Connector Tags
+<tspan x="770" dy="22">
+in IE apps,
+</tspan>
+<tspan x="770" dy="22">
+e.g. Performance Insight
+</tspan>
+</text>
+
+
+<!-- FLOW CREATOR -->
+
+<path class="connector"
+d="M1150 660 L1300 660 L1300 760"
+marker-end="url(#arrow)"/>
+
+<circle class="node" cx="1300" cy="760" r="40"/>
+<use href="#icon-pulse" transform="translate(1300 760)"/>
+
+<line class="connector" x1="1340" y1="760" x2="1400" y2="760"/>
+
+<text x="1410" y="755">
+Use Modbus TCP Connector Tags
+<tspan x="1410" dy="22">
+in Flow Creator
+</tspan>
+</text>
+
+  <!--
+    11 s cycle:
+      0.000–0.227  Ball 1  spine          (800,100)→(800,480)   t=0–2.5s
+      0.227–0.572  Ball 2  left           (800,480)→(450,700)   t=2.5–6.3s
+      0.227–0.545  Ball 3  right-spine    (800,480)→(1150,660)  t=2.5–6.0s  ← 2nd junction
+      0.545–0.843  Ball 4  right-left     (1150,660)→(900,900)  t=6.0–9.3s
+      0.545–0.697  Ball 5  right-right    (1150,660)→(1300,760) t=6.0–7.7s
+      0.843–1.000  pause — next ball starts from top
+  -->
+
+  <!-- Ball 1: spine -->
+  <circle r="11" fill="#00e676">
+    <animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" rotate="none"
+      keyPoints="0;1;1" keyTimes="0;0.227;1">
+      <mpath href="#anim-path-spine"/>
+    </animateMotion>
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite"
+      values="1;1;0;0" keyTimes="0;0.227;0.228;1"/>
+  </circle>
+
+  <!-- Ball 2: left branch — splits from junction 1 -->
+  <circle r="11" fill="#00e676" opacity="0">
+    <animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" rotate="none"
+      keyPoints="0;0;1;1" keyTimes="0;0.227;0.572;1">
+      <mpath href="#anim-path-left"/>
+    </animateMotion>
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite"
+      values="0;0;1;1;0;0" keyTimes="0;0.226;0.227;0.572;0.573;1"/>
+  </circle>
+
+  <!-- Ball 3: right spine — splits from junction 1, travels to junction 2 -->
+  <circle r="11" fill="#00e676" opacity="0">
+    <animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" rotate="none"
+      keyPoints="0;0;1;1" keyTimes="0;0.227;0.545;1">
+      <mpath href="#anim-path-right-spine"/>
+    </animateMotion>
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite"
+      values="0;0;1;1;0;0" keyTimes="0;0.226;0.227;0.545;0.546;1"/>
+  </circle>
+
+  <!-- Ball 4: right-left sub — splits from junction 2 -->
+  <circle r="11" fill="#00e676" opacity="0">
+    <animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" rotate="none"
+      keyPoints="0;0;1;1" keyTimes="0;0.545;0.843;1">
+      <mpath href="#anim-path-right-left"/>
+    </animateMotion>
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite"
+      values="0;0;1;1;0;0" keyTimes="0;0.544;0.545;0.843;0.844;1"/>
+  </circle>
+
+  <!-- Ball 5: right-right sub / Flow Creator — splits from junction 2 -->
+  <circle r="11" fill="#00e676" opacity="0">
+    <animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" rotate="none"
+      keyPoints="0;0;1;1" keyTimes="0;0.545;0.697;1">
+      <mpath href="#anim-path-right-right"/>
+    </animateMotion>
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite"
+      values="0;0;1;1;0;0" keyTimes="0;0.544;0.545;0.697;0.698;1"/>
+  </circle>
+
+</g>
+</svg>

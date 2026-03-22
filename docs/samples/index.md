@@ -15,8 +15,8 @@ Explore the interactive documentation examples below to see modern tech-writing 
 
 !!! note "User Instruction"
     ### [End-User Manual](user-manual/index.md)
-    An interactive manual for the **SIMATIC S7+ Connector**.
-    - **Features:** Step-by-step collapsible instructions, warning/caution blocks, and firmware version tabs.
+    An interactive manual for the **Modbus TCP Connector**.
+    - **Features:** Step-by-step collapsible instructions, architectural SVGs, and specific register mapping tables.
 
 !!! success "Product Communications"
     ### [Release Notes](release-notes/index.md)

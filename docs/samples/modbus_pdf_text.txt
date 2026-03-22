@@ -1,0 +1,671 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9Indus trial Edg e
+Modbus T CP Connect or
+ManualPreface
+What's Ne w
+Ov er vie w
+Ins tallation
+Mig ration
+Conﬁgur ing dat a s treams
+Limit ations
+Per formance measur es
+Appendix
+v4.1
+1025
+10/2025
+A5E52905450-AD
+2 Manual, 10/2025, A5E52905450-ADNOTICE
+This document was downloaded from the following site:
+https://docs.industrial-operations-x.siemens.cloud
+Siemens assumes no liability for the accuracy, completeness, or timeliness of the data
+provided.
+Use is at your own risk.
+Legal information
+Warning notice system
+This manual contains notices you have to observe in order to ensure your personal safety, as
+well as to prevent damage to property. The notices referring to your personal safety are
+highlighted in the manual by a safety alert symbol, notices referring only to property damage
+have no safety alert symbol. These notices shown below are graded according to the degree of
+danger.
+ DAN GER
+indicates that death or severe personal injury will result if proper precautions are not taken.
+ WAR NING
+indicates that death or severe personal injury may result if proper precautions are not taken.
+ CAUTION
+indicates that minor personal injury can result if proper precautions are not taken.
+NOTICE
+indicates that property damage can result if proper precautions are not taken.
+If more than one degree of danger is present, the warning notice representing the highest
+degree of danger will be used. A notice warning of injury to persons with a safety alert symbol
+may also include a warning relating to property damage.
+Qualiﬁed Personnel
+The product/system described in this documentation may be operated only by personnel
+qualiﬁed for the speciﬁc task in accordance with the relevant documentation, in particular its
+warning notices and safety instructions. Qu aliﬁed personnel are those who, based on their
+training and experience, are capable of identifying risks and avoiding potential hazards when
+working with these products/systems.
+Manual, 10/2025, A5E52905450-AD 3Proper use of Siemens products
+Note the following:
+ WAR NING
+Siemens products may only be used for the applications described in the catalog and in the
+relevant technical documentation. If products and components from other manufacturers are
+used, these must be recommended or approved by Siemens. Proper transport, storage,
+installation, assembly, commissioning, operation and maintenance are required to ensure
+that the products operate safely and without any problems. The permissible ambient
+conditions must be complied with. The information in the relevant documentation must be
+observed.
+Trademarks
+All names identiﬁed by ® are registered trademarks of Siemens Aktiengesellschaft. The
+remaining trademarks in this publication may be trademarks whose use by third parties for their
+own purposes could violate the rights of the owner.
+Disclaimer of Liability
+We have reviewed the contents of this publication to ensure consistency with the hardware and
+software described. Since variance cannot be precluded entirely, we cannot guarantee full
+consistency. However, the information in this publication is reviewed regularly and any
+necessary corrections are included in subsequent editions.
+Siemens  Aktieng esellscha ft
+Digital Ind ustries
+Postfach 48 48
+90026 NÜRNBERG
+GERMA NYA5E 52905450- AD
+10/2025 Su bject to cha ng eCopyright © Siemens  2026.
+All rights reserved
+4 Manual, 10/2025, A5E52905450-AD8
+8
+8
+9
+9
+10
+10
+10
+11
+11
+11
+11
+13
+13
+13
+13
+13
+13
+13
+13
+13
+14
+15
+15
+15
+15
+16
+18
+18
+18
+19
+19
+19
+19
+20
+20
+20Table of cont ents
+1  Preface
+1.1  Introduction
+1.1.1  Introduction to Modbus TCP Connector
+1.1.2  Validity of the documentation
+1.1.3  Ov erview of additional documentation
+1.2  Legal information
+1.2.1  Cybersecurity information
+1.2.2  Security Information for Industrial Edge Apps
+1.2.3  General Data Protection Regulation (GDPR)
+1.2.3.1  Personal data
+1.2.3.2  Purpose
+1.2.3.3  Securing data
+2  What's New
+2.1  What's new in Modbus TCP Connector
+2.1.1  Version 4.2.0
+2.1.1.1  Features
+2.1.1.2  Bug ﬁxes
+2.1.2  Version 4.1.0
+2.1.2.1  Features
+2.1.3  Version 4.0.0
+2.1.3.1  Features
+2.1.3.2  Limitation
+3  Overview
+3.1  Ov erview of Modbus TCP Connector
+3.2  Supported Data Types
+3.2.1  Supported data types in Modbus TCP Connector
+3.2.2  Default data types in Industrial Edge
+4  Installation
+4.1  System requirements
+4.1.1  Software requirements
+4.1.2  Hardware requirements
+4.1.3  Updating the Databus app
+4.2  Installation process
+4.2.1  Ov erview of the installation process
+4.2.1.1  Ov erview of the entire IE app purchase process
+4.2.1.2  Purchasing a license for an IE app
+4.2.2  Copying Modbus TCP Connector from the IE Hub to the IEM catalog
+Manual, 10/2025, A5E52905450-AD 520
+21
+21
+22
+22
+23
+23
+23
+23
+23
+25
+25
+25
+25
+25
+26
+26
+26
+29
+30
+30
+30
+31
+31
+32
+33
+33
+33
+33
+34
+34
+34
+34
+37
+37
+37
+37
+39
+39
+40
+40
+40
+41
+424.2.2.1  Copying an app to the IEM catalog
+4.2.3  Installing Modbus TCP Connector on the IE Device
+4.2.3.1  Installing the app on the IE Device
+4.2.4  Starting Modbus TCP Connector on the IE Device
+4.2.4.1  Starting the Modbus TCP Connector app
+5  Migration
+5.1  Upgrading Modbus TCP Connector
+5.1.1  Prerequisites
+5.1.2  Procedure
+5.1.3  Result
+6  Conﬁguring data streams
+6.1  Managing data sources
+6.1.1  Conﬁguring data sources
+6.1.1.1  Accessing the Modbus TCP Connector page
+6.1.1.2  Log messages tab
+6.1.1.3  Tags tab
+6.1.2  Adding data sources
+6.1.2.1  Adding a data source
+6.1.3  Editing data sources
+6.1.4  Deleting data sources
+6.2  Managing tags
+6.2.1  Adding tags
+6.2.1.1  Prerequisites
+6.2.1.2  Procedure
+6.2.2  Editing tags
+6.2.3  Deleting tags
+6.2.3.1  Alternate way to delete tags
+6.2.4  Deploying tags
+6.2.4.1  Procedure
+6.2.4.2  Result
+6.2.5  Importing conﬁgurations
+6.2.5.1  Prerequisites
+6.2.5.2  Procedure
+6.2.5.3  Result
+6.3  Conﬁguring via Databus (Op tional)
+6.3.1  Entering Databus credentials in Common Conﬁgurator
+6.3.1.1  Entering the credentials
+6.3.2  Conﬁguring metadata topics and users in Databus
+6.3.2.1  Conﬁguring Databus
+6.3.2.2  Result
+6.3.3  Deploying Modbus TCP tags in Databus (Common Conﬁgurator)
+6.3.3.1  Deploying tags to Databus
+6.3.3.2  Result
+7  Limitations
+6 Manual, 10/2025, A5E52905450-AD42
+42
+42
+42
+43
+43
+44
+44
+44
+44
+44
+45
+45
+45
+467.1  Limitations of Modbus TCP Connector
+7.1.1  Databus Gateway
+7.1.2  Modbus TCP Connector
+7.1.3  Databus Gateway and Modbus TCP Connector
+7.1.4  Connectivity Suite Connectors
+7.1.5  Common Conﬁgurator
+8  Performance measures
+8.1  Performance results
+8.1.1  Test environment
+8.1.2  Test scenario
+8.1.3  Test result
+9  Ap pendix
+9.1  Qu ality codes
+9.2  Change bit order
+9.3  Changing byte order
+Manual, 10/2025, A5E52905450-AD 7
+8 Manual, 10/2025, A5E52905450-AD1.1 Introduction
+1.1.1 Introduction to Modbus TCP Connector
+Welcome to the Modbus TCP Connector documentation for Industrial Edge.
+The Modbus TCP Connector connects various devices via the Modbus TCP protocol to the
+Industrial Edge system.
+Connectors collect data from PLCs and devices and make it available on the Industrial Edge
+system. The Modbus TCP Connector accesses data via the Modbus TCP protocol.
+This connector is part of the Connectivity Suite (CS) and supports standardized conﬁguration
+and data transfer.
+The Common Conﬁgurator handles the connector conﬁguration. It is available free of charge in
+the Industrial Edge marketplace.
+Industrial Edge App developers and users can integrate the data into their own applications and
+services. The Industrial Edge Connectors provide a uniﬁed data interface that reduces
+development eﬀort and forms the basis for modularized software solutions.
+The Modbus TCP Connector supports reading and writing values for devices via the Modbus TCP
+protocol. The following devices are supported:
+Schneider Quantum TCP/IP 140 CPU 113 03
+Schneider TSX Premium TSXP573634
+Schneider TSX Momentum 171CCC98020 (TCP/IP)
+Schneider Micro TSX 3710001
+Schneider M 340
+Schneider TM218LDAE24DRHN
+Schneider TM238LDD24DT
+Schneider TM258LD42DT
+Siemens SIWAREX WP231Preface 1 
+Manual, 10/2025, A5E52905450-AD 9Siemens SIWAREX WP241
+The Modbus TCP Connector includes the following key features:
+Feat ure Des cription
+Compatibility Interfaces with any Mo dbus TCP PLC using  the  stand ard protocol.
+Direct Integration As part of the  Conne ctivity Su ite, ena bles direct availability of Mo dbus TCP tag
+values in IIH witho ut ne eding  the  Databus.
+Real-time data subscription and
+write-backEna bles live data excha ng e with Mo dbus TCP-compatible devices.
+Comprehe ns ive data type
+supportSu pports all data types, excluding  arrays and  structures.
+Driver status feedback Provides driver status messages directly in the  Common Conﬁ gurator.
+1.1.2 Validity of the documentation
+This documentation covers the installation and conﬁguration of Modbus TCP Connector on
+Industrial Edge Devices (IE Devices). It provides step-by-step guidance for setting up and using
+the app.
+1.1.3 Overview of additional documentation
+The following resources provide additional information to complement this manual.
+Documen tation Main conten ts
+Ind ustrial Edge
+Ma rketplacePurcha se app licens es
+Ind ustrial Edge Hub Describes the  func tions  of the  Ind ustrial Edge platform and the  Edge Ma na gement
+Sy stem. All documentation for the  Ind ustrial Edge platform is available und er
+Documents.
+Sy stem overview Provides an overview of all Ind ustrial Edge solutions .
+Ind ustrial Edge training s Web-based training  to integrate IT in production with Ind ustrial Edge
+Databus Documentation for Databus
+Ind ustrial Information
+Hub (IIH)Ma nu al for Ind ustrial Information Hub
+SIMA TIC SC ADA Export
+for TIA PortalInformation and  download for the  SIMA TIC SC ADA export
+10 Manual, 10/2025, A5E52905450-AD1.2 Legal information
+1.2.1 Cyb ersecurity information
+Siemens provides products and solutions with industrial cybersecurity functions that support the
+secure operation of plants, systems, machines and networks.
+In order to protect plants, systems, machines and networks against cyber threats, it is necessary
+to implement – and continuously maintain – a holistic, state-of-the-art industrial cybersecurity
+concept. Siemens’ products and solutions constitute one element of such a concept.
+Customers are responsible for preventing unauthorized access to their plants, systems,
+machines and networks. Such systems, machines and components should only be connected to
+an enterprise network or the internet if and to the extent such a connection is necessary and
+only when appropriate security measures (e.g. ﬁrewalls and/or network segmentation) are in
+place.
+For additional information on industrial cybersecurity measures that may be implemented,
+please visit https://www.siemens.com/cybersecurity-industry.
+Siemens’ products and solutions undergo continuous development to make them more secure.
+Siemens strongly recommends that product updates are applied as soon as they are available
+and that the latest product versions are used. Use of product versions that are no longer
+supported, and failure to apply the latest updates may increase customer’s exposure to cyber
+threats.
+To stay informed about product updates, subscribe to the Siemens Industrial Cybersecurity RSS
+Feed under https://new.siemens.com/cert.
+1.2.2 Security Information for Industrial Edge Ap ps
+Security information (assumptions/constraints) for Industrial Edge Apps is as follows:
+Only authorized internal operators will have access to IE Device within a secure network using VPN
+connection.
+Perimeter firewall configuration responsibility lies with the end customer.
+The security guidelines for usage of USB Flash Drives in the shop floor area are applied
+accordingly.
+Creating users with appropriate access rights upon commissioning is the responsibility of the
+operator.
+The customer is responsible for configuring the application on the basis of the system
+requirements and technical capabilities of the documented App according to the Installation /
+User Manual such that the automation system performance is not impacted.
+The system is installed in an environment ensuring that physical access is limited to authorized
+maintenance personnel only. Managing unauthorized attachment of removable devices is the
+responsibility of the operator.
+Manual, 10/2025, A5E52905450-AD 11The platform including hardware, firmware and operating system is securely configured and
+maintained by the operator.
+The operator is capable of protecting the environment from malware infection.
+Centralized IT security components (Active Directory, Centralized IT Logging Server) are provided
+and well secured by the operator and are trustworthy.
+The operator personnel accessing the system is well trained in the usage of the system and general
+information security aspects like password handling, removable media, etc.
+The operator is responsible for the CIA (Confidentiality, Integrity and Availability) of data stored
+outside the IE Device.
+The operator is responsible for configuring the CPUs with appropriate read/write access levels
+(legitimization), and for configuring the Industrial Edge Apps using appropriate passwords for data
+collection from CPUs.
+The customer takes care about the time synchronization of Industrial Edge Management (IEM) and
+IE Device.
+1.2.3 General Data Protection Regulation (GDPR)
+Siemens observes the principles of data protection, in particular the principle of data
+minimization (privacy by design). For the Modbus TCP Connector product, this means that:
+1.2.3.1 Personal data
+There is no personal data collected but following data is stored to allow machine to machine
+communication:
+Databus access data
+Tag data and metadata of field devices
+1.2.3.1.1 Protection of per sonal dat a
+If you link the above data with other data (e.g. shift schedules) or if you store personal data on
+the same medium (e.g. hard disk) and thus create a personal reference, you must ensure that
+the data protection guidelines are observed.
+1.2.3.2 Purpose
+The above data is required for the following purposes:
+Access protection and security measures
+Reporting system for traceability and availability
+The storage of data is appropriate and limited to what is necessary, as it is essential to identify
+the authorized operators.
+12 Manual, 10/2025, A5E52905450-AD1.2.3.3 Securing data
+The above data will not be stored anonymously or pseudonymized, because the purpose
+(identiﬁcation of the operating personnel) cannot be achieved otherwise.
+The following data will only be used within the product and Edge ecosystem and will not be
+automatically shared with third parties or unauthorized individuals:
+Databus access data
+Modbus TCP authentication data
+The above data is protected against loss of integrity and conﬁdentiality by state-of-the-art
+security measures.
+Tag data and metadata of ﬁeld devices is used only within the product and is not automatically
+shared with third parties or unauthorized individuals.
+You must ensure access protection as part of your process conﬁguration.
+Manual, 10/2025, A5E52905450-AD 132.1 What's new in Modbus TCP Connector
+2.1.1 Version 4.2.0
+2.1.1.1 Features
+Support hot configuration deployment, allowing you to deploy configuration changes without
+restarting the connector, minimizing downtime and ensuring continuous operation
+Support auditable events for security monitoring and compliance
+Reduce logging for the ARM platform to error level by default. You can change the log level if
+needed. See Logging.
+2.1.1.2 Bug ﬁxes
+Fix reading issues for some devices
+Update the version of communication library
+2.1.2 Version 4.1.0
+2.1.2.1 Features
+Support for Read File Record function (0x14), for example, historical records from SIEMENS PAC
+devices
+Support for ARM64 devices
+Support for Industrial Edge Memory Management, which allows reservation of memory and a
+larger limit to load very large configuration files. Requires AMD64 IE Device-OS version 3.0 or later,
+or IE Device version 1.21 or later.
+Support Raw data type, providing the capability to read continuous register memory areas
+2.1.3 Version 4.0.0
+2.1.3.1 Features
+Support for remote configuration from the IEM. Requires Common Configurator on IEM and IE
+Device-OS  3.0.0 or later.
+Support for cyclic continuous. Publishes tags in each cycle, even if they do not change.
+Improved log files. If a log repeats with only a timestamp change, the system does not log it
+instantly. Instead, it counts the occurrences and logs the entry after ten minutes.What's Ne w 2 
+14 Manual, 10/2025, A5E52905450-AD2.1.3.2 Limitation
+Requires IE Device-OS  2.1 or later
+Manual, 10/2025, A5E52905450-AD 153.1 Overview of Modbus TCP Connector
+Modbus TCP Connector is an app that runs on IE Devices. Install Modbus TCP Connector on IE
+Devices to connect to your Modbus TCP PLCs.
+Modbus TCP Connector transfers tag values from Modbus TCP PLCs to the Databus or Industrial
+Information Hub (IIH). This enables you to analyze and visualize Modbus TCP tag values in apps
+such as Performance Insight.
+Modbus TCP Connector supports any Modbus TCP PLC that uses the standard protocol.
+As a Connectivity Suite (CS) Connector, Modbus TCP Connector also makes tag values available
+directly in the IIH without using the Databus. For more information, see IIH documentation.
+Architecture Overview
+IE Device
+Industrial Edge Applications
+Analytics Applications Visualization ApplicationsCustom Industrial Edge
+Applications
+Data Platform
+Common Configurator
+Databus
+(Optional)
+Modbus TCP Connector
+Industrial Edge App
+Modbus TCP
+CommunicationTag Acquisition Data NormalizationSelectable Data
+Publishing
+Shop FloorData Sources
+Modbus TCP Server
+3.2 Supported Data Typ esOver vie w 3 
+16 Manual, 10/2025, A5E52905450-AD3.2.1 Supported data typ es in Modbus TCP Connector
+Data
+typ eDes cription
+Bool 1 bit
+Int Signe d integer, 2 bytes
+UInt Uns igne d integer, 2 bytes
+DInt Signe d integer, 4 bytes
+UDInt Uns igne d integer, 4 bytes
+LInt Signe d integer, 8 bytes
+ULInt Uns igne d integer, 8 bytes
+Real Floating  point, 4 bytes
+LReal Floating  point, 8 bytes
+Word Uns igne d integer, 2 bytes
+String Cha racter string . The  maximum leng th is 250 cha racters.
+Raw A data block. Data leng th speciﬁcation is achieved through dot no tation in the  address ﬁeld (for example,
+address.leng th) .
+3.2.2 Default data typ es in Industrial Edge
+The current version of the Common Conﬁgurator publishes Connectivity Suite data types as
+standard Industrial Edge data types. Alternative type conﬁgurations are not available.
+The following data types map between the Connectivity Suite and Industrial Edge:
+Manual, 10/2025, A5E52905450-AD 17Connec tivity Suite data typ e Industrial Edge data typ e
+Bool Bool
+UInt16 UInt
+Int16 Int
+UInt32 UDInt
+Int32 DInt
+UInt64 ULInt
+Int64 LInt
+Float32 Real
+Float64 LReal
+String String
+UInt16 Word
+To convert Connectivity Suite data to the appropriate Industrial Edge data types, you can also
+conﬁgure the Databus manually. The conﬁguration ﬁle is located in the "Management" tab of the
+IE Device.
+18 Manual, 10/2025, A5E52905450-AD4.1 System requirements
+Listed below are the system requirements to ensure successful installation of the Modbus TCP
+Connector app.
+4.1.1 Software requirements
+You need Google Chrome Version 72 or later.
+The apps are available in the Industrial Edge Marketplace. Transfer the latest app version to your
+Industrial Edge Management (IEM) system and install it on your IE Device.
+Ap p/Componen t Req uired
+ver sionDes cription Source
+IE Device-OS 2.1 or later Op erating  system for IE Devices IEM Sy stem
+Common Conﬁ gurator V2.0 or later Conﬁ gures data sources and  data points on
+IE DevicesInd ustrial Edge
+Ma rketplace
+IIH Se mantics V2.0 or later Op tiona l Ind ustrial Edge
+Ma rketplace
+IIH Registry Se rvice V2.0 or later Creates conne ctions  between compone nts;
+required to view conne ctors in the  overviewInd ustrial Edge
+Ma rketplace
+Common Import
+ConverterV3.0 or later Converts diﬀerent ﬁle formats to IIH-
+compatible format; imports tag values from
+TIA Portal projects oﬄineInd ustrial Edge
+Ma rketplace
+Mo dbus TCP Conne ctor V4.2 Ma nd atory Ind ustrial Edge
+Ma rketplace
+Databus V3.0 or later Required if you want to publish tag values
+to the  DatabusInd ustrial Edge
+Ma rketplace
+SIMA TIC SC ADA Export
+for TIA PortalTIA Portal
+V18 or laterRequired if you want to import tag values
+from TIA Portal projects oﬄineSiemens  Ind ustry
+Onl ine  Su pport
+(SIOS)Ins tallation 4 
+Manual, 10/2025, A5E52905450-AD 19All apps listed above must be installed on the same IE Device. The latest version of Databus
+V3.0.0 supports communication with connectivity suite connectors because the Databus
+Gateway application is now integrated into Databus.
+4.1.2 Hardware requirements
+You need the following:
+A device on which IEM is running
+An Industrial IE Device compatible with IEM:
+- Model: for example, SIMATIC IPC127E, IPC227E Nanobox, SIMATIC IPC427E, or IPC827E
+- Hard disk: at least 10 GB available
+- RAM: 2 GB available
+The Industrial IE Device must be onboarded to IEM
+IEM, IE Devices, and web browsers must use synchronous UTC time zone settings.
+4.1.3 Updating the Databus app
+Update the Databus app to version 3.0.0 by following these steps:
+1. Navigate to "Common Configurator" and create a backup of your current configuration.
+2. Upgrade the "Databus" app to version 3.0.0.
+3. Wait 3 minutes before continuing to ensure all processes are stable.
+4. Uninstall the "Databus Gateway" app from your IE Device.
+4.2 Installation process
+4.2.1 Overview of the installation process
+Industrial Edge apps are available in the Industrial Edge Hub Library. The Industrial Edge Hub (IE
+Hub) is the central repository for all available Industrial Edge apps (IE apps) from Siemens and
+other app partners in the ecosystem.
+The installation of an IE app involves the following steps:
+Copying an IE app from the IE Hub to IEM
+Installing an app on one or more IE Devices
+Starting an installed app on an IE DeviceNOTICE
+NO TICE
+
+20 Manual, 10/2025, A5E52905450-ADThe installation steps are demonstrated in the following video:
+4.2.1.1 Overview of the entire IE app purchase process
+The following ﬁgure shows the steps required to install and start an Industrial Edge app
+purchased from the Industrial Edge Marketplace on an IE Device:
+4.2.1.2 Purchasing a license for an IE app
+Purchase licenses for individual IE apps in the Industrial Edge Marketplace. For detailed
+instructions, see How to buy on the Siemens Industrial Edge Marketplace.
+For more information on purchasing IE apps and managing your account, see Frequently Asked
+Qu estions.
+4.2.2 Copying Modbus TCP Connector from the IE Hub to the IEM catalog
+This section explains how to transfer an Industrial Edge app from the IE Hub to the IEM catalog
+of one or more IEM instances.
+IEM is a control level for managing devices, apps, and users on a shop ﬂoor.
+Before you start, ensure you have the following:
+Internet connection
+Access to the IE Hub
+At least one available IEM instance
+4.2.2.1 Copying an app to the IEM catalog
+Follow these steps:
+Manual, 10/2025, A5E52905450-AD 211. Open the IE Hub and enter your credentials.
+The IE Hub home screen appears.
+2. Open the "Library" tab in the Industrial Edge Hub.
+The library contains all apps for which you have purchased a license and all system apps.
+3. Click the desired app.
+The app details appear.
+4. In the drop-down list, select all IEM instances to which you want to copy the app.
+5. Click "Copy latest version to IEM".
+The app is copied and a corresponding job is created. You can track the job status in the status
+window of the corresponding IEM instance.
+4.2.3 Installing Modbus TCP Connector on the IE Device
+This section explains how to install an Industrial Edge app from an IEM instance on an IE Device.
+Before you start, ensure you have access to the IEM instance where the app is available in the
+catalog.
+4.2.3.1 Installing the app on the IE Device
+Follow these steps:
+1. Open the IEM home page and log in.
+2. Open the IEM catalog and click the app you want to install.
+3. Click the "Install" button.
+The "Install App" dialog window appears. If you have a configuration file from another IE Device,
+you can upload it here.
+4. Click "Next".
+The "Install App" dialog window appears. If you have a configuration file from another IE Device,
+you can upload it here.
+5. Select one or more IE Devices where you want to install the app. The devices must be powered on
+and online.
+6. Select one of the following installation options:
+Click "Install Delayed" or "Install Later" to start the installation at a later time.
+Click "Install Now" to install the app immediately.
+7. Click the "Job Status" tab to view the installation progress.
+After the installation completes, check "My Installed Apps" to see which apps are installed on
+which IE Devices.
+All apps can be installed in the same way as explained above.Ins tallation of o ther apps
+
+22 Manual, 10/2025, A5E52905450-AD4.2.4 Starting Modbus TCP Connector on the IE Device
+Before you start the Modbus TCP Connector app, ensure you have access to the IE Device on
+which the app is installed.
+4.2.4.1 Starting the Modbus TCP Connector app
+1. Open the IE Device home page and log in.
+2. Open the "Apps" tab.
+3. Launch the Common Configurator app and open the "Get Data" tab.
+The "Modbus TCP Connector" app appears in the available connectors list.
+4. Click "Modbus TCP Connector" to start configuring the data sources and tags.
+Manual, 10/2025, A5E52905450-AD 235.1 Upgrading Modbus TCP Connector
+Modbus TCP Connector v2.1.0 uses Databus (MQT T), while the new Modbus TCP Connector
+(v3.0.0 or later) uses Connectivity Suite (gRPC). The new version oﬀers signiﬁcantly better
+performance. This process enables you to smoothly upgrade from v2.1.0 to v3.0.0 or later.
+5.1.1 Prerequisites
+Ensure the following components are installed before upgrading:
+Componen t Ver sion Function
+Common Conﬁ gurator v1.11 or later Conﬁ gure data sources and  tags
+Common Import Converter v2.1.0 or later Import tags or convert conﬁ guration from v2.1.0 to v3.0.0
+Registry Se rvice v1.8.0 or later Se rvice mana gement
+Ensure the Modbus TCP Connector app version is 2.1.0.
+5.1.2 Procedure
+Follow these steps to upgrade Modbus TCP Connector.
+1. Copy the latest version from the Industrial Edge Hub to the IEM catalog. For more information, see
+Copying an app from the Industrial Edge Hub to the catalog.
+2. Open the IEM catalog.
+3. Click "Modbus TCP Connector".
+The latest version app page appears.
+4. Click "Update".
+5.1.3 Result
+After upgrading, open Common Conﬁgurator and navigate to "Get Data > Connector
+Conﬁguration". The latest version of Modbus TCP Connector appears in the list of available
+connectors.Migration 5 
+NO TICE
+
+24 Manual, 10/2025, A5E52905450-AD
+After upgrade, tag comments are lost.
+After upgrade, data bus configuration is missing. Manually set the data acquisition cycle, select
+"Publish on Data Bus", and deploy the configuration to the connector and data bus.
+After upgrade, Modbus TCP Connector version and configuration settings are updated.NOTICE
+
+Manual, 10/2025, A5E52905450-AD 256.1 Managing data sources
+6.1.1 Conﬁguring data sources
+A data source is a device that provides data. Use the Common Conﬁgurator to conﬁgure Modbus
+TCP Connector to consume data from devices on your IE Device.
+6.1.1.1 Accessing the Modbus TCP Connector page
+Follow these steps to access the Modbus TCP Connector conﬁguration page:
+1. Launch your IE Device and navigate to "Apps > Common Configurator".
+2. Click "Get Data > Connector Configuration".
+The "Get Data" page opens and displays all available connectors.
+The page includes the following options:
+Option Des cription
+Reload
+conﬁ gurationRetrieves the  conne ctor conﬁ guration from the  latest deployment and  reverts cha ng es made
+in Common Conﬁ gurator for all conne ctors.
+Backup Downloads all conne ctor conﬁ gurations .
+Restore Imports and  restores downloaded conﬁ gurations .
+3. Select "Modbus TCP Connector".
+The Modbus TCP Connector page opens with the following tabs: "Log messages" and "Tags".
+6.1.1.2 Log messages tab
+When you open Modbus TCP Connector, the "Log messages" tab displays by default.Conﬁgur ing dat a s treams 6 
