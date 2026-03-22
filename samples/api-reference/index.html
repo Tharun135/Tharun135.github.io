@@ -992,9 +992,9 @@ data, device configuration, and alert management. Use this API to integrate
 SiteEdge data into your enterprise dashboards, CMMS platforms, or custom workflows.</p>
 <hr />
 <h2 id="authentication">Authentication</h2>
-<p>All API requests require a Bearer token in the <code>Authorization</code> header.</p>
-<pre><code class="language-http">Authorization: Bearer &lt;your_token&gt;
-</code></pre>
+<p>All API requests require a Bearer token in the <code>Authorization</code> header.
+<div class="highlight"><pre><span></span><code><span class="err">Authorization: Bearer &lt;your_token&gt;</span>
+</code></pre></div></p>
 <p>To generate a token, navigate to <strong>Settings → API Access → Generate Token</strong> 
 in the SiteEdge portal.</p>
 <hr />
@@ -1002,24 +1002,24 @@ in the SiteEdge portal.</p>
 <h3 id="devices">Devices</h3>
 <h4 id="get-devices">GET /devices</h4>
 <p>Returns a list of all registered devices in your organization.</p>
-<p><strong>Request</strong></p>
-<pre><code class="language-http">GET /devices
-Authorization: Bearer &lt;your_token&gt;
-</code></pre>
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;devices&quot;: [
-    {
-      &quot;id&quot;: &quot;dev-001&quot;,
-      &quot;name&quot;: &quot;Compressor Unit A&quot;,
-      &quot;status&quot;: &quot;online&quot;,
-      &quot;location&quot;: &quot;Plant Floor 2&quot;,
-      &quot;last_seen&quot;: &quot;2026-03-17T08:42:00Z&quot;
-    }
-  ],
-  &quot;total&quot;: 1
-}
-</code></pre>
+<p><strong>Request</strong>
+<div class="highlight"><pre><span></span><code><span class="err">GET /devices</span>
+<span class="err">Authorization: Bearer &lt;your_token&gt;</span>
+</code></pre></div></p>
+<p><strong>Response</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-001&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compressor Unit A&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;online&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Plant Floor 2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;last_seen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-03-17T08:42:00Z&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <p><strong>Response fields</strong></p>
 <table>
 <thead>
@@ -1079,20 +1079,20 @@ Authorization: Bearer &lt;your_token&gt;
 </tr>
 </tbody>
 </table>
-<p><strong>Request</strong></p>
-<pre><code class="language-http">GET /devices/dev-001
-Authorization: Bearer &lt;your_token&gt;
-</code></pre>
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;dev-001&quot;,
-  &quot;name&quot;: &quot;Compressor Unit A&quot;,
-  &quot;status&quot;: &quot;online&quot;,
-  &quot;location&quot;: &quot;Plant Floor 2&quot;,
-  &quot;firmware&quot;: &quot;v3.1.2&quot;,
-  &quot;alerts&quot;: []
-}
-</code></pre>
+<p><strong>Request</strong>
+<div class="highlight"><pre><span></span><code><span class="err">GET /devices/dev-001</span>
+<span class="err">Authorization: Bearer &lt;your_token&gt;</span>
+</code></pre></div></p>
+<p><strong>Response</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compressor Unit A&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;online&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Plant Floor 2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;firmware&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v3.1.2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;alerts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
 <h3 id="alerts">Alerts</h3>
 <h4 id="get-alerts">GET /alerts</h4>
@@ -1122,23 +1122,23 @@ Authorization: Bearer &lt;your_token&gt;
 </tr>
 </tbody>
 </table>
-<p><strong>Request</strong></p>
-<pre><code class="language-http">GET /alerts?severity=high
-Authorization: Bearer &lt;your_token&gt;
-</code></pre>
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;alerts&quot;: [
-    {
-      &quot;id&quot;: &quot;alert-204&quot;,
-      &quot;device_id&quot;: &quot;dev-001&quot;,
-      &quot;severity&quot;: &quot;high&quot;,
-      &quot;message&quot;: &quot;Temperature threshold exceeded&quot;,
-      &quot;triggered_at&quot;: &quot;2026-03-17T07:15:00Z&quot;
-    }
-  ]
-}
-</code></pre>
+<p><strong>Request</strong>
+<div class="highlight"><pre><span></span><code><span class="err">GET /alerts?severity=high</span>
+<span class="err">Authorization: Bearer &lt;your_token&gt;</span>
+</code></pre></div></p>
+<p><strong>Response</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;alerts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alert-204&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-001&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Temperature threshold exceeded&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;triggered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-03-17T07:15:00Z&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
 <h2 id="error-codes">Error codes</h2>
 <table>
