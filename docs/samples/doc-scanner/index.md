@@ -1,71 +1,93 @@
-# DocScanner — AI Documentation Reviewer
+# DocScanner AI: Technical Overview & Features
 
-DocScanner is an AI-powered documentation analysis tool built to automate style guide enforcement, readability checking, and content rewriting in a professional technical writing workflow.
+DocScanner AI is an advanced, AI-powered document review system designed for technical writers and content creators. It combines static rule-based analysis with a **RAG (Retrieval-Augmented Generation)** engine to ensure documentation follows enterprise-grade style guides (such as the Siemens Style Guide) while maintaining high readability and semantic clarity.
 
 ---
 
-## Technical Architecture
+## 🚀 Core Architecture
 
-DocScanner uses a **Retrieval-Augmented Generation (RAG)** approach to ensure that style checks are grounded in specific company guidelines without overwhelming the LLM context.
+DocScanner follows a **Reviewer-First Architecture**, prioritizing high-level structural checks before diving into granular sentence-level metrics.
 
 ```mermaid
 graph TD
-    A[User Document] --> B{Text Parser}
-    B --> C[Readability Engine]
-    B --> D[Style Checker]
+    A[User Document] --> B[Multi-Format Parser]
+    B --> C{Structural Gatekeeper}
     
-    D --> E[Embeddings Model]
-    E --> F[(ChromaDB Style Rules)]
-    F --> G[Relevant Rule Retrieval]
-    G --> H[LLM Analyzer]
+    C -->|Blocking Issues| D[Structural Feedback Report]
+    C -->|Structure OK| E[Linguistic Analysis Pipeline]
     
-    C --> I[Flesch-Kincaid Score]
-    H --> J[Structured Feedback]
+    E --> F[spaCy Segmenter]
     
-    I --> K[Final Report/UI]
+    F --> G[Static Rule Engine]
+    F --> H[RAG-AI Engine]
+    
+    H --> I[(ChromaDB: 465+ Knowledge Chunks)]
+    I --> J[Context-Aware LLM Rewrite]
+    
+    G --> K[Technical Highlights/UI]
     J --> K
+    D --> K
 ```
 
----
-
-## Interactive Showcase: Style Enforcement
-
-This tool identifies passive voice, complex sentence structures, and non-imperative steps, providing immediate rewrite suggestions.
-
-=== "Before Review"
-    > "The configuration of the system components can be updated by the operator by selecting the internal settings menu which is located in the sidebar."
-    
-    *   **Issues Found:** Passive voice, sentence length > 25 words, non-imperative structure.
-
-=== "After DocScanner"
-    > "Update system components by selecting **Internal Settings** in the sidebar."
-    
-    *   **Fixes Applied:** Converted to active voice, reduced word count by 65%, used imperative mood.
+### Technical Stack
+- **Backend:** Flask (Python) with Socket.IO for real-time progress tracking.
+- **NLP Engine:** spaCy (for segmentation and linguistic tagging).
+- **Knowledge Base:** ChromaDB (Vector Database) for style guide storage.
+- **AI Engine:** Multi-mode support for **Ollama** (Local AI) and **OpenAI**.
+- **Frontend:** Vanilla JS/CSS with Bootstrap, featuring an interactive side-by-side review interface.
 
 ---
 
-## Key Features
+## 🛠️ Key Features & Workflows
 
-!!! tip "RAG over Static Prompting"
-    Instead of sending a massive 50-page style guide to an LLM, DocScanner retrieves only the 3-5 rules relevant to the specific paragraph being analyzed. This reduces token cost and eliminates "hallucinated" rules.
+### 📂 Multi-Format Support
+The system parses multiple industrial and developer formats into a unified representation while preserving structural integrity:
+- **Text & Markdown:** `.txt`, `.md`, `.adoc`
+- **Word Documents:** Full `.doc` and `.docx` parsing (via `mammoth`).
+- **Formatting Preservation:** Inline bold, italic, and links are preserved to ensure accurate highlighting during the review stage.
 
-| Feature | Method | Benefit |
-| :--- | :--- | :--- |
-| **Stylistic Consistency** | Vector Search (RAG) | Matches against corporate style guides in real-time. |
-| **Passive Voice Detection** | spaCy Dependency Parsing | Identifies structural issues that standard LLMs often miss. |
-| **Readability Metrics** | Flesch-Kincaid / Gunning-Fog | Ensures content matches the target audience's grade level. |
+### 🛡️ The "Document Review Gate"
+To prevent overwhelming users with minor issues in a poorly structured document, DocScanner uses a **Structural Gatekeeper**:
+- **Blocking Checks:** Identifies missing goals, lack of numbered steps in procedures, or unclear target audiences.
+- **Adaptive Scope:** If a document is "Blocking," the system provides high-level feedback first to guide the writer through a structural fix before sentence-level analysis begins.
 
 ---
 
-## Developer Insight: Flask Blueprints
+## 🧠 Intelligent Review Engine
 
-The engine is built with modularity in mind using Flask blueprints. Each analysis module (style, grammar, readability) is independent, allowing for parallel processing and easier debugging of the rule pipeline.
+### RAG-Powered AI Suggestions
+When an issue is flagged, the AI doesn't just guess a fix. It uses a **context-aware RAG workflow**:
+1. **Semantic Search:** The system searches the vector database for the specific rule violated (e.g., Siemens rule for "avoiding filler words").
+2. **Context Injection:** The AI is provided with the current sentence plus the surrounding sentences to ensure the suggestion fits the author's voice and flow.
+3. **Validation:** Suggestions are compared against the original to ensure improvements in word count, clarity, and structural adherence.
 
-```python
-# Analysis pipeline registration
-from modules import style, readability, grammar
+### Style Guide Enforcement
+DocScanner applies a hierarchy of rules to every sentence:
+- **Siemens Style Guide:** Enforces specific standards (e.g., avoiding "should/could," "it is/there is," and "therefore").
+- **Linguistic Precision:** Detects passive voice, overly long sentences (>25 words), and unnecessary adverbs.
+- **Tense Consistency:** Encourages active, simple present-tense verbs for procedural instructions.
 
-app.register_blueprint(style.bp, url_prefix='/api/style')
-app.register_blueprint(readability.bp, url_prefix='/api/readability')
-app.register_blueprint(grammar.bp, url_prefix='/api/grammar')
-```
+---
+
+## 📊 Quality Metrics & Dashboard
+
+The dashboard provides immediate quantitative and qualitative feedback:
+- **Readability Scores:** Real-time computation of Flesch Reading Ease, Gunning Fog, and SMOG Index.
+- **Quality Score:** An overall 0-100 score based on issue density.
+- **Progressive Loading:** A real-time socket-based progress bar tracking stages: *Parsing &rarr; Extracting &rarr; Analyzing &rarr; Reporting.*
+
+---
+
+## 🎨 Interactive UI Features
+
+!!! example "Advanced Highlighting"
+    **Bidirectional Highlighting:** Hovering over an issue in the sidebar highlights the exact sentence in the document view, and clicking a sentence in the document filters the issue list.
+
+- **AI Suggestion Panel:** A dedicated interface to view, accept, or reject AI-powered rewrites.
+- **Performance Monitor:** Tracks the helpfulness of AI suggestions to refine model performance.
+- **Premium Dark Mode:** A state-of-the-art dark interface optimized for long technical review sessions.
+
+---
+
+> [!NOTE] 
+> **Latest Update:** The system now features **robust sentence-level highlighting** by removing de-duplication, ensuring that repeated headings or duplicate warnings are correctly identified and flagged.
