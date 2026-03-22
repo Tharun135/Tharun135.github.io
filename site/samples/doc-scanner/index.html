@@ -910,25 +910,25 @@ with dynamic loading. Adding a new rule type doesn't require touching
 existing code.</p>
 <hr />
 <h2 id="sample-output">Sample output</h2>
-<pre><code class="language-json">{
-  &quot;segment&quot;: &quot;The configuration can be updated by the user.&quot;,
-  &quot;issues&quot;: [
-    {
-      &quot;type&quot;: &quot;passive_voice&quot;,
-      &quot;severity&quot;: &quot;medium&quot;,
-      &quot;suggestion&quot;: &quot;Rewrite in active voice: 'Update the configuration.'&quot;
-    },
-    {
-      &quot;type&quot;: &quot;style_rule&quot;,
-      &quot;rule&quot;: &quot;Use imperative mood for procedural steps&quot;,
-      &quot;severity&quot;: &quot;high&quot;,
-      &quot;suggestion&quot;: &quot;Start with a verb: 'Update the configuration.'&quot;
-    }
-  ],
-  &quot;readability_score&quot;: 62.4,
-  &quot;grade_level&quot;: &quot;8th grade&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;segment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The configuration can be updated by the user.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;issues&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passive_voice&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;suggestion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Rewrite in active voice: &#39;Update the configuration.&#39;&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;style_rule&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;rule&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use imperative mood for procedural steps&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;suggestion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start with a verb: &#39;Update the configuration.&#39;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;readability_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">62.4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;grade_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8th grade&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="what-i-learned">What I learned</h2>
 <ul>

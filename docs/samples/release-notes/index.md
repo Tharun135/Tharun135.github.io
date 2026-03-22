@@ -1,53 +1,40 @@
-# SiteEdge Release Notes
+# Release Notes: Connectors & APIs
+
+This is a sample release notes page formatted according to standard software changelog templates. It incorporates factual context automatically generated from the **SIMATIC S7+ Connector** and **IIH Essentials API** documentation.
 
 ---
 
-## Version 2.4 — March 2026
+## Version 2.4.0 – February 2026
 
-### New features
+### 🆕 New Features
+* **Anchor Assets Support**: Added full CRUD operations for Anchor Assets, Anchor Types, and Anchor Attributes via the IIH Essentials API.
+* **Data Backup & Restore**: Introduced new endpoints (`GET /DataService/Backup` and `POST /DataService/Restore`) for full configuration portability.
 
-- **Bulk alert acknowledgement** — Operators can now acknowledge multiple alerts 
-  simultaneously from the Alerts list view.
-- **Custom report scheduling** — Reports can be scheduled to generate and email 
-  automatically on a daily, weekly, or monthly basis.
-- **Device grouping** — Devices can now be organised into custom groups for 
-  easier filtering and reporting.
+### 🚀 Enhancements
+* **Improved API Response Speed**: Optimized the `GET /DataService/Adapters` endpoint, increasing parsing speed by ~30% for systems with over 100+ connected sources.
+* **Disk Space Reporting**: Extended disk space reporting metrics to include granular details for Aggregations, Aspects, and DataRetentions.
 
-### Bug fixes
+### 🐛 Bug Fixes
+* **Large File Uploads**: Fixed an issue where multipart file uploads failed for large configuration backups exceeding 16 MB.
+* **Alarm Synchronization**: Resolved an issue where acknowledged and deleted status of alarms were not properly reflected in the Databus Gateway.
 
-- Fixed an issue where the dashboard status indicator showed incorrect colours 
-  after a browser refresh.
-- Resolved a timeout error that occurred when generating Uptime Reports 
-  for date ranges exceeding 90 days.
-- Fixed a display issue where alert timestamps appeared in UTC instead of 
-  the user's configured timezone.
-
-### Known issues
-
-- Bulk acknowledgement does not currently support alerts filtered by device group. 
-  This will be addressed in v2.5.
-- Scheduled reports may be delayed by up to 10 minutes during peak processing hours.
+### ⚠️ Breaking Changes
+* **Property Renaming**: The property `$anchor` in the `AggregationValue` schema has been officially renamed to `$pointer`.
+* **Deprecated Legacy Endpoint**: The legacy `/analyze-text` API endpoint has been fully removed. 
+   &rarr; *Use `/DataService/Calculate` instead.*
 
 ---
 
-## Version 2.3 — January 2026
+## Version 2.3.0 – January 2026
 
-### New features
+### 🆕 New Features
+* **Central Configuration**: The SIMATIC S7+ Connector can now be completely configured remotely from a central Common Configurator running on the IEM System.
+* **Array Support**: Added comprehensive reading and writing capabilities for arrays of default data types, including `String`, `WString`, and `DTL`.
 
-- **Alert escalation rules** — Administrators can configure automatic escalation 
-  when an alert remains unacknowledged beyond a defined threshold.
-- **API rate limit headers** — API responses now include `X-RateLimit-Remaining` 
-  and `Retry-After` headers for better client-side handling.
+### 🚀 Enhancements
+* **Cyclic Continuous Mode**: Added support for the `Cyclic Continuous` acquisition mode on S7+ tags for higher frequency data streaming.
+* **Reduced Memory Footprint**: Decreased the local storage footprint of the CS Databus Gateway by optimizing JSON generation routines.
 
-### Bug fixes
-
-- Resolved an issue where deleted devices continued to appear in the 
-  Devices list for up to 30 minutes after deletion.
-- Fixed incorrect pagination on the Alerts list when more than 500 
-  alerts were active simultaneously.
-
-### Known issues
-
-- Alert escalation emails may not be delivered if the recipient's mail 
-  server applies aggressive spam filtering. Whitelist `alerts@siteedge.io` 
-  to resolve this.
+### 🐛 Bug Fixes
+* **Negative Array Bounds**: Fixed browsing failures for tags with negative array bounds in the S7-1500 Software Controller.
+* **String Allocation Failure**: Fixed a writing failure that sporadically occurred when processing large `String`-arrays in Edge.

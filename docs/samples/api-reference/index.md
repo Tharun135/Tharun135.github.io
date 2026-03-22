@@ -1,132 +1,92 @@
-# SiteEdge API Reference Guide
+# API Reference: IIH Essentials
 
-**Version:** 2.4  
-**Base URL:** `https://api.siteedge.io/v2`  
-**Authentication:** Bearer Token
+This is an interactive API reference sample dynamically generated from an uploaded PDF. It uses **Markdown Tabs**, **Code Highlighting**, and **Badges** to present a developer-friendly API portal.
 
 ---
 
 ## Overview
 
-The SiteEdge REST API provides programmatic access to industrial site monitoring 
-data, device configuration, and alert management. Use this API to integrate 
-SiteEdge data into your enterprise dashboards, CMMS platforms, or custom workflows.
+Description of the REST API of IIH Essentials.
+
+- **Version**: 2.4.0
+- **Connection Timeout**: 10 seconds
+- **Max Request Limit**: 16 MB (per single request, non-file)
+- **Base Specifications**: Anchor Asset API v1.0
+
+### Target Servers
+
+The API can be accessed via the following endpoints:
+
+| Environment | Base URL |
+| :--- | :--- |
+| **Local Development** | `http://localhost:4203` |
+| **Docker Container** | `http://edgeappdataservice:4203` |
+| **Industrial Edge Device** | `https://{ip_or_address_of_ied}/iih-essentials` |
 
 ---
 
-## Authentication
+## Endpoints: Adapters
 
-All API requests require a Bearer token in the `Authorization` header.
-```http
-Authorization: Bearer <your_token>
-```
+### `GET /DataService/Adapters`
+**Get all available adapters.**
 
-To generate a token, navigate to **Settings → API Access → Generate Token** 
-in the SiteEdge portal.
+Retrieves a list of all adapters currently configured in the system.
 
----
+=== "cURL"
+    ```bash
+    curl -X 'GET' \
+      -H 'Accept: application/json' \
+      'http://localhost:4203/DataService/Adapters'
+    ```
 
-## Endpoints
+=== "Python"
+    ```python
+    import http.client
+    
+    conn = http.client.HTTPConnection("localhost:4203")
+    conn.request("GET", "/DataService/Adapters")
+    
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
+    ```
 
-### Devices
+=== "JavaScript"
+    ```javascript
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-#### GET /devices
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+            console.log(this.responseText);
+        }
+    });
 
-Returns a list of all registered devices in your organization.
+    xhr.open("GET", "http://localhost:4203/DataService/Adapters");
+    xhr.send(null);
+    ```
 
-**Request**
-```http
-GET /devices
-Authorization: Bearer <your_token>
-```
+#### Response (Success)
 
-**Response**
-```json
+```json title="application/json"
 {
-  "devices": [
+  "adapters": [
     {
-      "id": "dev-001",
-      "name": "Compressor Unit A",
-      "status": "online",
-      "location": "Plant Floor 2",
-      "last_seen": "2026-03-17T08:42:00Z"
-    }
-  ],
-  "total": 1
-}
-```
-
-**Response fields**
-
-| Field | Type | Description |
-|---|---|---|
-| `id` | string | Unique device identifier |
-| `name` | string | Human-readable device name |
-| `status` | string | `online`, `offline`, or `warning` |
-| `location` | string | Physical location label |
-| `last_seen` | string | ISO 8601 timestamp of last ping |
-
----
-
-#### GET /devices/{id}
-
-Returns details for a single device.
-
-**Path parameters**
-
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `id` | string | Yes | Device ID |
-
-**Request**
-```http
-GET /devices/dev-001
-Authorization: Bearer <your_token>
-```
-
-**Response**
-```json
-{
-  "id": "dev-001",
-  "name": "Compressor Unit A",
-  "status": "online",
-  "location": "Plant Floor 2",
-  "firmware": "v3.1.2",
-  "alerts": []
-}
-```
-
----
-
-### Alerts
-
-#### GET /alerts
-
-Returns all active alerts across your organization.
-
-**Query parameters**
-
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `severity` | string | No | Filter by `low`, `medium`, or `high` |
-| `device_id` | string | No | Filter by device |
-
-**Request**
-```http
-GET /alerts?severity=high
-Authorization: Bearer <your_token>
-```
-
-**Response**
-```json
-{
-  "alerts": [
-    {
-      "id": "alert-204",
-      "device_id": "dev-001",
-      "severity": "high",
-      "message": "Temperature threshold exceeded",
-      "triggered_at": "2026-03-17T07:15:00Z"
+      "id": "profinet",
+      "name": "Profinet IO Connector",
+      "type": "simaticadapter",
+      "locked": true,
+      "active": true,
+      "isDefault": false,
+      "canBrowse": true,
+      "connected": false,
+      "config": {
+        "useDatabusSettings": false,
+        "brokerURL": "tcp://ie-databus:1883",
+        "username": "",
+        "password": "",
+        "browseURL": "ie/m/j/simatic/v1/pnhs1/dp"
+      }
     }
   ]
 }
@@ -134,20 +94,47 @@ Authorization: Bearer <your_token>
 
 ---
 
-## Error codes
+### `POST /DataService/Adapters`
+**Create a new adapter.**
 
-| Code | Meaning |
-|---|---|
-| `400` | Bad request — check your parameters |
-| `401` | Unauthorized — invalid or missing token |
-| `404` | Resource not found |
-| `429` | Rate limit exceeded |
-| `500` | Internal server error |
+Creates a new adapter configuration. The adapter `name` must be unique and not empty. The `locked` parameter must be set to `false` for user-created adapters.
 
----
+=== "cURL"
+    ```bash
+    curl -X 'POST' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      'http://localhost:4203/DataService/Adapters' \
+      -d '{
+        "name": "Profinet IO Connector",
+        "active": true,
+        "config": {
+            "brokerURL": "tcp://ie-databus:1883",
+            "useDatabusSettings": false
+        }
+    }'
+    ```
 
-## Rate limits
+=== "Python"
+    ```python
+    import http.client
+    import json
+    
+    conn = http.client.HTTPConnection("localhost:4203")
+    payload = json.dumps({
+        "name": "Profinet IO Connector",
+        "active": True,
+        "config": {
+            "brokerURL": "tcp://ie-databus:1883",
+            "useDatabusSettings": False
+        }
+    })
+    headers = { 'content-type': "application/json" }
+    
+    conn.request("POST", "/DataService/Adapters", payload, headers)
+    res = conn.getresponse()
+    print(res.read().decode("utf-8"))
+    ```
 
-The API allows **1,000 requests per hour** per token. 
-Exceeding this limit returns a `429` response. 
-The `Retry-After` header indicates when you can retry.
+!!! note "Adapter Lock State"
+    System adapters defaults to `"locked": true` and cannot be modified or deleted. Any adapter you create via this endpoint should be created with `"locked": false`.
