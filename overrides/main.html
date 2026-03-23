@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if not page.is_homepage %}
+    <!-- Hero Block Injected via Overrides -->
+    <div class="hero animate-fade-in" style="opacity: 1 !important;">
+       <span class="floating-icon" style="font-size: 3rem;">
+         {% if page.title == "Experiments" %}🧪
+         {% elif page.title == "TIL" or page.title == "TIL / Notes" %}⚡
+         {% elif page.title == "Now" %}🎯
+         {% elif page.title == "Samples" or page.title == "Documentation Samples" %}📁
+         {% elif "API" in page.title %}🚀
+         {% elif "Manual" in page.title %}📖
+         {% elif "Release" in page.title %}📦
+         {% elif "DocScanner" in page.title %}🔍
+         {% else %}🔬
+         {% endif %}
+       </span>
+       <h1>{{ page.title }}</h1>
+       {% if page.meta.description %}
+         <p>{{ page.meta.description }}</p>
+       {% endif %}
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
