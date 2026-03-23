@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#til-today-i-learned" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -425,7 +420,7 @@
   
   
   <span class="md-ellipsis">
-    Experiments
+    Index
     
   </span>
   
@@ -525,21 +520,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    TIL
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -552,34 +532,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#march-2026" class="md-nav__link">
-    <span class="md-ellipsis">
-      March 2026
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -664,7 +616,7 @@
   
   
   <span class="md-ellipsis">
-    Documentation Samples
+    Index
     
   </span>
   
@@ -791,25 +743,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#march-2026" class="md-nav__link">
-    <span class="md-ellipsis">
-      March 2026
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -825,21 +758,27 @@
 
 
 
-<h1 id="til-today-i-learned">TIL — Today I Learned</h1>
+<div class="hero animate-fade-in" style="opacity:1;">
+  <span class="floating-icon" style="font-size: 3rem;">⚡</span>
+  <h1>TIL / Notes</h1>
+  <p>Short capsules of knowledge and small wins from daily builds.</p>
+</div>
+
 <p>Short notes on things I picked up recently. No polish, just signal.</p>
 <hr />
-<h2 id="march-2026">March 2026</h2>
+<div class="admonition abstract">
+<p class="admonition-title">March 2026</p>
 <p><strong>MkDocs <code>gh-deploy</code> handles everything</strong>
 You don't need to manually manage the <code>gh-pages</code> branch. 
-<code>mkdocs gh-deploy</code> builds, branches, and pushes in one command. 
-Wish I'd known this earlier.</p>
+<code>mkdocs gh-deploy</code> builds, branches, and pushes in one command. </p>
 <p><strong>ChromaDB retrieval quality depends on input quality</strong>
 Spent an hour debugging poor RAG results. The embeddings were fine. 
 The style rules I'd written were just too vague to retrieve meaningfully. 
-Rewrote them to be specific and example-driven — retrieval improved immediately.</p>
-<p><strong>PowerShell doesn't use backticks as code fences</strong>
+Rewrote them to be specific and example-driven.</p>
+<p><strong>PowerShell conventions</strong>
 Triple backticks are a Markdown convention, not a shell command. 
-Learned this the hard way.</p>
+Learned this the hard way while automating doc builds.</p>
+</div>
 <hr />
 <p><em>Add a new entry whenever you learn something worth remembering.</em></p>
 
@@ -937,6 +876,8 @@ Learned this the hard way.</p>
     
     
       <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

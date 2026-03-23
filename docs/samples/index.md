@@ -1,43 +1,51 @@
 <div class="hero animate-fade-in" style="opacity:1;">
   <span class="floating-icon" style="font-size: 3rem;">📁</span>
-  <h1>Documentation Samples</h1>
-  <p>A curated selection of technical documentation for various domains.</p>
+  <h1>Sample Portfolio</h1>
+  <p>Interactive documentation examples across various technical domains.</p>
 </div>
 
-A selection of documentation types I've curated across over 7 years in SaaS B2B, industrial technology, and high-stakes engineering domains. These samples demonstrate a focus on clarity, modular architecture, and interactive developer experiences.
+A selection of documentation types I've curated across over 7 years in SaaS B2B, industrial technology, and high-stakes engineering. These samples demonstrate a focus on clarity and modular architecture.
 
-!!! warning "Work in Progress & Limited Access"
-    Please note that the samples provided here are **not complete** and are intended only to provide a **glimpse** into the structure and style of my work. 
+!!! warning "Work in Progress"
+    These samples are intended for structural demonstration. For a comprehensive portfolio, please contact me directly.
 
-    For a more comprehensive portfolio or to view full, non-anonymized documentation samples, please **[contact me directly](https://www.linkedin.com/in/tharun-sebastian/)**.
+<div class="grid cards" markdown>
 
----
+-   <span class="animate-fade-in delay-1">:material-api:{ .lg .middle } __API Reference Guide__</span>
 
-## 📂 Sample Portfolio
+    ---
 
-Explore the interactive documentation examples below to see modern tech-writing standards in action.
+    A functional-style REST API portal for industrial services.
 
-!!! abstract "API & Integration"
-    ### [API Reference Guide](api-reference/index.md)
-    A functional-style REST API portal for the **IIH Essentials** service.
-    - **Features:** Code sandbox tabs (cURL, Python, JS), JSON response schema, and server endpoints.
+    [:octicons-arrow-right-24: View Reference](api-reference/index.md)
 
-!!! note "User Instruction"
-    ### [End-User Manual](user-manual/index.md)
-    An interactive manual for the **Modbus TCP Connector**.
-    - **Features:** Step-by-step collapsible instructions, architectural SVGs, and specific register mapping tables.
+-   <span class="animate-fade-in delay-2">:material-book-open-variant:{ .lg .middle } __End-User Manual__</span>
 
-!!! success "Product Communications"
-    ### [Release Notes](release-notes/index.md)
-    Clean, versioned changelogs for software deployments.
-    - **Features:** Badge-labeled updates (New, Fix, Breaking) and deprecated endpoint warnings.
+    ---
 
-!!! info "Tooling & Innovation"
-    ### [DocScanner](doc-scanner/index.md)
-    An architectural deep-dive into an AI-driven documentation review tool.
-    - **Features:** Mermaid.js flowchart of the RAG pipeline and interactive before/after content review.
+    Interactive instructions and architectural SVGs for industrial connectors.
+
+    [:octicons-arrow-right-24: Read Manual](user-manual/index.md)
+
+-   <span class="animate-fade-in delay-3">:material-package-variant-closed:{ .lg .middle } __Release Notes__</span>
+
+    ---
+
+    Clean, versioned changelogs for software deployments and updates.
+
+    [:octicons-arrow-right-24: View Changes](release-notes/index.md)
+
+-   <span class="animate-fade-in delay-4">:material-magnify-expand:{ .lg .middle } __DocScanner__</span>
+
+    ---
+
+    Architectural deep-dive into AI-driven documentation review tools.
+
+    [:octicons-arrow-right-24: View Innovation](doc-scanner/index.md)
+
+</div>
 
 ---
 
 > [!TIP]
-> All product names and specific internal details have been anonymized or fictionalized to respect intellectual property and confidentiality agreements.
+> All product names and specific internal details have been anonymized to respect confidentiality.

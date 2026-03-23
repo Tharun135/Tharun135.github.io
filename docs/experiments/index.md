@@ -6,10 +6,32 @@
 
 AI tools, ideas, and builds — mostly applied to technical writing and documentation.
 
-These are works in progress. Some will ship. Some won't. All of them taught me something.
+These are ongoing works in progress. Some will ship, some won't—but all have been part of the learning journey.
 
-| Experiment | What it is | Status |
-|---|---|---|
-| [Doc-Scanner](doc-scanner.md) | AI-powered documentation analysis tool | Active |
-| [RAG with ChromaDB](rag-chromadb.md) | Style rule retrieval using vector search | Active |
-| [Doc Agent Orchestrator](documentation-agent-orchestrator.md) | Governance-driven AI orchestration for technical documentation | Active |
+<div class="grid cards" markdown>
+
+-   <span class="animate-fade-in delay-1">:material-magnify:{ .lg .middle } __Doc-Scanner__</span>
+
+    ---
+
+    Technical analysis of doc assets. Uses RAG to check against the Siemens Style Guide.
+
+    [:octicons-arrow-right-24: View Project](doc-scanner.md)
+
+-   <span class="animate-fade-in delay-2">:material-database-search:{ .lg .middle } __RAG with ChromaDB__</span>
+
+    ---
+
+    Experimenting with vector retrieval for style guide enforcement and semantic checking.
+
+    [:octicons-arrow-right-24: View Logic](rag-chromadb.md)
+
+-   <span class="animate-fade-in delay-3">:material-robot-governance:{ .lg .middle } __Doc Agent Orchestrator__</span>
+
+    ---
+
+    A governance layer that coordinates multiple AI agents for high-accuracy doc generation.
+
+    [:octicons-arrow-right-24: View Deep Dive](documentation-agent-orchestrator.md)
+
+</div>
