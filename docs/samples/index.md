@@ -2,6 +2,11 @@
 
 A selection of documentation types I've curated across over 7 years in SaaS B2B, industrial technology, and high-stakes engineering domains. These samples demonstrate a focus on clarity, modular architecture, and interactive developer experiences.
 
+!!! warning "Work in Progress & Limited Access"
+    Please note that the samples provided here are **not complete** and are intended only to provide a **glimpse** into the structure and style of my work. 
+
+    For a more comprehensive portfolio or to view full, non-anonymized documentation samples, please **[contact me directly](https://www.linkedin.com/in/tharun-sebastian/)**.
+
 ---
 
 ## 📂 Sample Portfolio

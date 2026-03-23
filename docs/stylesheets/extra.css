@@ -1,0 +1,206 @@
+:root {
+  --md-primary-fg-color:        #121858;
+  --md-primary-fg-color--light: #2c3e50;
+  --md-primary-fg-color--dark:  #1a1a1a;
+  --md-accent-fg-color:        #7c4dff;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-fg-color--light: #94a3b8;
+  --md-default-bg-color:        #0f172a;
+  --md-default-bg-color--light: #1e293b;
+  --md-footer-bg-color:         #020617;
+  --md-typeset-a-color:         #a78bfa;
+}
+
+/* --- LAB SIGNATURE LAYER --- */
+
+/* 1. Blueprint Background */
+body {
+  background-image: 
+    linear-gradient(rgba(124, 77, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 77, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 2. Glassmorphism for the Header */
+.md-header {
+  backdrop-filter: blur(12px);
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border-bottom: 1px solid rgba(124, 77, 255, 0.2);
+}
+
+/* 3. Status Badge */
+body::after {
+  content: "LAB STATUS: ACTIVE";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(124, 77, 255, 0.1);
+  border: 1px solid rgba(124, 77, 255, 0.3);
+  color: #a78bfa;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  z-index: 100;
+  pointer-events: none;
+  animation: badgePulse 3s infinite;
+}
+
+@keyframes badgePulse {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 10px rgba(124, 77, 255, 0.5); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+/* --- ANIMATIONS --- */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px rgba(124, 77, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(124, 77, 255, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(124, 77, 255, 0.2); }
+}
+
+/* Global Transition */
+body {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+body[data-md-color-scheme] {
+  opacity: 1;
+}
+
+/* Base reveal animation class */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-scale-in { animation: fadeInScale 0.6s ease-out forwards; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+.floating-icon {
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: radial-gradient(circle at 50% 50%, rgba(124, 77, 255, 0.08) 0%, transparent 70%);
+  margin-bottom: 3rem;
+  opacity: 0;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a78bfa, #7c4dff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+/* Hover effects for Cards and Links */
+.md-typeset .grid.cards a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md-typeset .grid.cards a:hover {
+  border-color: var(--md-accent-fg-color);
+  background-color: rgba(124, 77, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(124, 77, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Staggered load for standard typeset elements if needed */
+.md-typeset h1, 
+.md-typeset h2, 
+.md-typeset p, 
+.md-typeset .admonition,
+.md-typeset table,
+.md-typeset .highlight,
+.md-typeset img {
+  /* Default to slight fade in if not specifically handled by JS */
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Progressive delays for children of typeset to give a "flow" feel */
+.md-typeset > *:nth-child(1) { animation-delay: 0.05s; }
+.md-typeset > *:nth-child(2) { animation-delay: 0.1s; }
+.md-typeset > *:nth-child(3) { animation-delay: 0.15s; }
+.md-typeset > *:nth-child(4) { animation-delay: 0.2s; }
+.md-typeset > *:nth-child(5) { animation-delay: 0.25s; }
+.md-typeset > *:nth-child(6) { animation-delay: 0.3s; }
+.md-typeset > *:nth-child(7) { animation-delay: 0.35s; }
+.md-typeset > *:nth-child(8) { animation-delay: 0.4s; }
+.md-typeset > *:nth-child(9) { animation-delay: 0.45s; }
+.md-typeset > *:nth-child(10) { animation-delay: 0.5s; }
+.md-typeset > *:nth-child(11) { animation-delay: 0.55s; }
+.md-typeset > *:nth-child(12) { animation-delay: 0.6s; }
+
+.md-typeset .admonition {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.md-typeset .admonition:hover {
+  transform: translateX(5px);
+  box-shadow: -4px 0 12px rgba(124, 77, 255, 0.1);
+}
+
+.admonition.abstract {
+  border-left-width: 4px !important;
+  animation: pulseGlow 4s infinite, fadeInUp 0.8s ease-out both !important;
+}
+
+/* Customizing the scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-default-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 77, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 77, 255, 0.5);
+}
