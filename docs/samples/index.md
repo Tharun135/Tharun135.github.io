@@ -1,4 +1,8 @@
-# Documentation Samples
+<div class="hero animate-fade-in" style="opacity:1;">
+  <span class="floating-icon" style="font-size: 3rem;">📁</span>
+  <h1>Documentation Samples</h1>
+  <p>A curated selection of technical documentation for various domains.</p>
+</div>
 
 A selection of documentation types I've curated across over 7 years in SaaS B2B, industrial technology, and high-stakes engineering domains. These samples demonstrate a focus on clarity, modular architecture, and interactive developer experiences.
 

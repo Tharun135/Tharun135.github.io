@@ -1,4 +1,8 @@
-# API Reference: IIH Essentials
+<div class="hero animate-fade-in" style="opacity:1;">
+  <span class="floating-icon" style="font-size: 3rem;">🚀</span>
+  <h1>API Reference: IIH Essentials</h1>
+  <p>Technical specifications and endpoints for the Industrial Information Hub.</p>
+</div>
 
 ## Overview
 

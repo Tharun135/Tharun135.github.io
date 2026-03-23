@@ -1,4 +1,8 @@
-# Technical Documentation: Documentation Agent Orchestrator
+<div class="hero animate-fade-in" style="opacity:1;">
+  <span class="floating-icon" style="font-size: 3rem;">🤖</span>
+  <h1>Documentation Agent Orchestrator</h1>
+  <p>A governance layer for AI-driven documentation generation in VS Code.</p>
+</div>
 
 ## Table of Contents
 

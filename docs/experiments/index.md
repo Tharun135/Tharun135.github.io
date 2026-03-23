@@ -1,4 +1,8 @@
-# Experiments
+<div class="hero animate-fade-in" style="opacity:1;">
+  <span class="floating-icon" style="font-size: 3rem;">🧪</span>
+  <h1>Experiments</h1>
+  <p>AI-powered tools and governance layers for modern documentation.</p>
+</div>
 
 AI tools, ideas, and builds — mostly applied to technical writing and documentation.
 
