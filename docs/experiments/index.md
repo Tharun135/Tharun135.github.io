@@ -25,7 +25,7 @@ These are ongoing works in progress. Some will ship, some won't—but all have b
 
     [:octicons-arrow-right-24: View Logic](rag-chromadb.md)
 
--   <span class="animate-fade-in delay-3">:material-robot-governance:{ .lg .middle } __Doc Agent Orchestrator__</span>
+-   <span class="animate-fade-in delay-3">:material-robot-check:{ .lg .middle } __Doc Agent Orchestrator__</span>
 
     ---
 
