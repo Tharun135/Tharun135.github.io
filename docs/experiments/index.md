@@ -32,5 +32,13 @@ These are ongoing works in progress. Some will ship, some won't—but all have b
     A governance layer that coordinates multiple AI agents for high-accuracy doc generation.
 
     [:octicons-arrow-right-24: View Deep Dive](documentation-agent-orchestrator.md)
+    
+-   <span class="animate-fade-in delay-4">:material-microphone:{ .lg .middle } __Speaking Tracker__</span>
+
+    ---
+
+    An AI-powered speech coach designed for English fluency. Uses Gemini AI to analyze voice and provide feedback.
+
+    [:octicons-arrow-right-24: View Project](speaking-tracker.md)
 
 </div>
