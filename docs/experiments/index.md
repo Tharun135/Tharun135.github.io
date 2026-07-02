@@ -33,12 +33,14 @@ These are ongoing works in progress. Some will ship, some won't—but all have b
 
     [:octicons-arrow-right-24: View Deep Dive](documentation-agent-orchestrator.md)
     
--   <span class="animate-fade-in delay-4">:material-microphone:{ .lg .middle } __Echo Lab__</span>
+-   <span class="animate-fade-in delay-4">:material-eye:{ .lg .middle } __Doc Visual Intelligence__</span>
 
     ---
 
-    An AI-powered speech coach designed for English fluency. Uses Gemini AI to analyze voice and provide feedback.
+    An intelligent visual recommendation engine that analyzes technical documentation and suggests appropriate visual assets (e.g., Mermaid diagrams) to improve clarity and user comprehension. 
 
-    [:octicons-arrow-right-24: View Project](echo-lab.md)
+    [:octicons-arrow-right-24: View Live Demo](https://visual-advisor.onrender.com/)
+
+    [:octicons-arrow-right-24: View Project Details](doc-visual-intelligence.md)
 
 </div>
